@@ -47,6 +47,6 @@ v1.0.0 使用合成视频验证了：横屏缩放、竖屏保持方向、无音�
 
 ## 第三方组件
 
-本工具调用独立的 FFmpeg 程序。下载脚本从 Gyan 获取当前 release essentials 构建，包含 GPL 组件。已使用本机 FFmpeg 8.1.1 full_build 验证压缩功能。许可证见 `third-party/FFmpeg-LICENSE.txt`；构建及源代码信息见 [Gyan FFmpeg builds](https://www.gyan.dev/ffmpeg/builds/) 和 [FFmpeg](https://ffmpeg.org/)。如向外再分发其二进制文件，应履行对应许可证和源代码提供义务。
+本工具调用独立的 FFmpeg 程序。下载脚本从 Gyan 的 GitHub 镜像获取固定的 8.1.1 essentials 构建，并验证发布方提供的 SHA-256，包含 GPL 组件。已使用本机 FFmpeg 8.1.1 full_build 验证压缩功能。许可证见 `third-party/FFmpeg-LICENSE.txt`；构建及源代码信息见 [Gyan FFmpeg builds](https://www.gyan.dev/ffmpeg/builds/) 和 [FFmpeg](https://ffmpeg.org/)。如向外再分发其二进制文件，应履行对应许可证和源代码提供义务。
 
 本项目自己的源代码暂未指定开源许可证；仓库可见性不代表授予开源许可。

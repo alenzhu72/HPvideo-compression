@@ -9,11 +9,11 @@ try {
         $downloadRoot = Join-Path $PSScriptRoot ('.setup-' + [Guid]::NewGuid().ToString('N'))
         New-Item -ItemType Directory -Path $downloadRoot | Out-Null
         try {
-            $url = 'https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip'
+            $url = 'https://github.com/GyanD/codexffmpeg/releases/download/8.1.1/ffmpeg-8.1.1-essentials_build.zip'
             $archive = Join-Path $downloadRoot 'ffmpeg.zip'
             $client = New-Object Net.WebClient
             try {
-                $checksumText = $client.DownloadString($url + '.sha256')
+                $checksumText = '6f58ce889f59c311410f7d2b18895b33c03456463486f3b1ebc93d97a0f54541'
                 $client.DownloadFile($url, $archive)
             } finally { $client.Dispose() }
             $match = [regex]::Match($checksumText, '(?i)\b[0-9a-f]{64}\b')
