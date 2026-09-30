@@ -1,0 +1,32 @@
+﻿手机视频批量压缩工具
+
+1. 将整个文件夹解压，再双击「Start.cmd」。
+2. 点击「添加视频」，按住 Ctrl 或 Shift 一次选择多个视频。
+3. 选择保存位置，点击「开始压缩」。
+4. 完成后点击「打开结果」，将带「_手机版」的视频发送出去。
+
+默认输出：Windows 的“视频”文件夹下的“手机压缩视频”。
+输出限制：每个成功文件严格小于 180,000,000 字节（180MB）。
+画质：通常最高横屏 1280×720 / 竖屏 720×1280，H.264 + AAC，30fps。
+视频较长时会降低码率，必要时降到 480p；极长视频可能因画质最低限制而报错。
+不裁切视频时长。输出会检查大小和时长，超过限制会重试，失败不会留下完成文件。
+原文件不覆盖。同名输出自动添加序号。停止时清理本次临时文件，已完成结果保留。
+首次启动联网下载并校验 FFmpeg 组件，此后压缩无需联网，不上传视频。
+仅保留第一条视频画面和第一条音轨，不保留字幕、章节及额外音轨。
+HDR 色彩转换未专门适配；本工具主要面向普通 SDR 手机视频。
+工具不控制 WhatsApp 的发送规则；可在 WhatsApp 中使用“文档”方式选择结果文件。
+
+支持 Windows 10/11 64 位，使用系统 .NET Framework 4.x。
+请把程序、ffmpeg.exe、ffprobe.exe 保留在同一个文件夹中。
+失败后双击该行可查看原因。压缩速度取决于电脑 CPU 和视频长度。
+
+第三方组件
+公开包不含 FFmpeg 二进制，首次启动从 Gyan 下载 release essentials 构建。许可证下载后保存在 FFmpeg-LICENSE。
+官方网站：https://ffmpeg.org/
+构建发布与源代码信息：https://www.gyan.dev/ffmpeg/builds/
+FFmpeg 命令文档：https://ffmpeg.org/ffmpeg.html
+如果要公开再分发本包，请履行 FFmpeg / GPL 及依赖组件的源代码分发义务。
+
+程序源代码：VideoCompressor.cs
+编译（Windows PowerShell，当前目录为工具文件夹）：
+& C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /nologo /target:winexe /optimize+ /out:手机视频压缩.exe /reference:System.Windows.Forms.dll /reference:System.Drawing.dll VideoCompressor.cs
